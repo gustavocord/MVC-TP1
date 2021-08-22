@@ -35,11 +35,42 @@ public class Tablero {
 		
 		for (int i= 0 ; i<this.botones.length; i++) {
 			for (int j = 0; j < botones[i].length; j++) {
-				win = this.botones[i][j].estado() && win;
+				win = this.botones[i][j].getEstado() && win;
 			}
 		}
 		return win;
 	}
+	
+	
+	// cambiamos el estado del boton
+	public void cambiarEstado(int i , int j) {
+		if (botones[i][j].getEstado()) {
+			botones[i][j].setEstado(false);
+		}
+		else {
+			botones[i][j].setEstado(true);		}
+	}
+	
+	
+
+// cambia el estado de los vecinos dependiendo la ubicacion del boton apretado	
+	public void cambiarEstadoVecinos(int i, int j) {
+		if(i>0) {
+			cambiarEstado(i-1,j);
+		}
+		if(i<botones.length-1) {
+			cambiarEstado(i+1,j);
+		}
+		
+		if(j>0) {
+			cambiarEstado(i,j-1);
+		}
+		if(j<botones.length-1) {
+			cambiarEstado(i,j+1);
+		}
+	}
+	
+	
 	
 	
 }
