@@ -8,17 +8,13 @@ private boolean estado;
 		this.estado = estado;
 	}
 	
-	public void cambiarEstado(boolean estado) {
-		if (estado) {
-			estado=false;
-		}
-		else {
-			estado = true;
-		}
+	
+	public boolean getEstado() {
+		return estado;
 	}
 
-	public boolean estado() {
-		return estado;
+	public void setEstado(boolean estado)  {
+		this.estado =estado;
 	}
 
 	
