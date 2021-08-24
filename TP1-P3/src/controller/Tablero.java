@@ -44,11 +44,15 @@ public class Tablero {
 	
 	// cambiamos el estado del boton
 	public void cambiarEstado(int i , int j) {
+		System.out.println("ahora "+  botones[i][j].getEstado());
+
 		if (botones[i][j].getEstado()) {
 			botones[i][j].setEstado(false);
 		}
 		else {
 			botones[i][j].setEstado(true);		}
+		
+		System.out.println("despues "+  botones[i][j].getEstado());
 	}
 	
 	
