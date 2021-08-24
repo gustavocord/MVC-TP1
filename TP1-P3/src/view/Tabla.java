@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.text.StyleConstants.ColorConstants;
 
@@ -22,7 +23,7 @@ import java.awt.Color;
 
 
 
-public class Tabla extends JFrame  implements ActionListener {
+public class Tabla extends JFrame   {
 
 	JFrame frame;
 	private Tablero tablero;
@@ -85,6 +86,7 @@ public class Tabla extends JFrame  implements ActionListener {
 				if(tablero.getBotones()[i][j].getEstado()) {
 					botn.setBorderPainted(false);
 					botn.setBackground(Color.black);
+					botn.setEnabled(true); 
 					botn.addActionListener(new ButtonPress());
 				}
 				else {
@@ -99,6 +101,7 @@ public class Tabla extends JFrame  implements ActionListener {
 		
 	}
 
+	
 	private class ButtonPress implements ActionListener {	
 	
 	@Override
@@ -126,19 +129,50 @@ public class Tabla extends JFrame  implements ActionListener {
 	        }
 	        
 	        tablero.cambiarEstado(i, j);
+	        actualizarBotones();
+	       // switchColor(botones[i][j]);
 	        
 	        
 	        
 		}
+	
+	public void switchColor(JButton button) {// Used to switch color from black to white or vice versa.
+		if (button.getBackground().equals(Color.black)) {
+			button.setBackground(Color.green);
+		} else {
+			button.setBackground(Color.black);
+		}
 		
 	}
+	
+	
+	//actualizar botones
+	
+	public void actualizarBotones() {
+		for(int i = 0; i < botones.length ; i++) {
+			for(int j = 0; j < botones[i].length; j++) {
+		
+				if(tablero.getBotones()[i][j].getEstado()) {
+					 botones[i][j].setBackground(Color.black);
+				
+				}
+				else {
+				
+					 botones[i][j].setBackground(Color.green);
+					
+				}
+	}
+	
+	
 
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
+
 	}
+}
 	}
+}
+
+
+
 	
 	/*
 	 * realizar funcionalidad de botones con matriz
