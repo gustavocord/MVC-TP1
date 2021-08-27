@@ -61,7 +61,7 @@ public class Tablero {
 	public void cambiarEstadoVecinos(int i, int j) {
 		if(i>0) {
 			cambiarEstado(i-1,j);
-			//cambiarEstado(i,j);
+			cambiarEstado(i,j);
 		}
 		if(i<botones.length-1) {
 			cambiarEstado(i+1,j);
