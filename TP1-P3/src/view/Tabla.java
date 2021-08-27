@@ -116,6 +116,7 @@ public class Tabla extends JFrame   {
 					if (((JButton) e.getSource()).equals(botones[i][j])) {
 						  tablero.cambiarEstadoVecinos(i, j);
 					        System.out.println("i : "+ i+" j: "+j);
+					  
 					        actualizarBotones();
 						    presionado = true;
 
