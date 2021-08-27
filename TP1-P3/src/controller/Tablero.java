@@ -61,19 +61,25 @@ public class Tablero {
 	public void cambiarEstadoVecinos(int i, int j) {
 		if(i>0) {
 			cambiarEstado(i-1,j);
-			cambiarEstado(i,j);
+			//cambiarEstado(i,j);
 		}
 		if(i<botones.length-1) {
 			cambiarEstado(i+1,j);
-			cambiarEstado(i,j);
+			//cambiarEstado(i,j);
 		}
 		
 		if(j>0) {
 			cambiarEstado(i,j-1);
-			cambiarEstado(i,j);
+			//cambiarEstado(i,j);
 		}
 		if(j<botones.length-1) {
 			cambiarEstado(i,j+1);
+			int bot = botones.length-1;
+			System.out.println("valor de J "+j +  "botones " + bot);
+
+			//cambiarEstado(i,j);
+		}
+		else {
 			cambiarEstado(i,j);
 		}
 	}
