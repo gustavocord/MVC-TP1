@@ -104,8 +104,10 @@ public class Tabla extends JFrame   {
 	
 	private class ButtonPress implements ActionListener {	
 	
-	@Override
+
+	
 	public void actionPerformed(ActionEvent e) {
+
 		
 		//if(event.getSource()==botn) {
 			//System.out.println("se presiono");
