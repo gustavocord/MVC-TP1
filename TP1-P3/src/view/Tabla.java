@@ -105,36 +105,30 @@ public class Tabla extends JFrame   {
 	private class ButtonPress implements ActionListener {	
 	
 	@Override
-	public void actionPerformed(ActionEvent event) {
+	public void actionPerformed(ActionEvent e) {
 		
 		//if(event.getSource()==botn) {
 			//System.out.println("se presiono");
 			boolean presionado = false;
 			
-			int i = 0, j = 0;
-	        while (i < botones.length && !presionado) {
-	 
-	        	if (((JButton) event.getSource()).equals(botones[i][j])) {
-	        		presionado= true;
-	        		System.out.println("se presiono");
-	        	}
-	            
-	            if (j == botones[0].length - 1) {
-	                i++;
-	                j = 0;
-	            } else {
-	                j++;
-	            }
-	 
-	        }
+			for (int i = 0; i < botones.length; i++) {
+				for (int j = 0; j < botones[i].length; j++) {
+					if (((JButton) e.getSource()).equals(botones[i][j])) {
+						  tablero.cambiarEstadoVecinos(i, j);
+					        System.out.println("i : "+ i+" j: "+j);
+					        actualizarBotones();
+						    presionado = true;
+
+					}
+				}
+				
 	        
-	        tablero.cambiarEstado(i, j);
-	        actualizarBotones();
-	       // switchColor(botones[i][j]);
-	        
+	      
+			}
 	        
 	        
 		}
+	}
 	
 	public void switchColor(JButton button) {// Used to switch color from black to white or vice versa.
 		if (button.getBackground().equals(Color.black)) {
@@ -169,7 +163,7 @@ public class Tabla extends JFrame   {
 	}
 }
 	}
-}
+
 
 
 
