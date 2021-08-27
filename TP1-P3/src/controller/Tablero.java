@@ -59,23 +59,20 @@ public class Tablero {
 
 // cambia el estado de los vecinos dependiendo la ubicacion del boton apretado	No funciona bien
 	public void cambiarEstadoVecinos(int i, int j) {
+		cambiarEstado(i,j);
 		if(i>0) {
 			cambiarEstado(i-1,j);
-			cambiarEstado(i,j);
 		}
 		if(i<botones.length-1) {
 			cambiarEstado(i+1,j);
-			cambiarEstado(i,j);
+		
 		}
 		
 		if(j>0) {
 			cambiarEstado(i,j-1);
-			cambiarEstado(i,j);
 		}
 		if(j<botones.length-1) {
 			cambiarEstado(i,j+1);
-			int bot = botones.length-1;
-			cambiarEstado(i,j);
 		}
 	
 	}
