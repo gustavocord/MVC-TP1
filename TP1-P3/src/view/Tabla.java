@@ -131,14 +131,7 @@ public class Tabla extends JFrame   {
 		}
 	}
 	
-	public void switchColor(JButton button) {// Used to switch color from black to white or vice versa.
-		if (button.getBackground().equals(Color.black)) {
-			button.setBackground(Color.green);
-		} else {
-			button.setBackground(Color.black);
-		}
-		
-	}
+
 	
 	
 	//actualizar botones
