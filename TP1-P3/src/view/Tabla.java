@@ -30,7 +30,6 @@ public class Tabla extends JFrame   {
 	private Tablero tablero;
 	JButton [][]botones; //va a estar ubicado igual que el que viene en la logica
 	
-	
 	/**
 	 * Launch the application.
 	 */
@@ -130,6 +129,7 @@ public class Tabla extends JFrame   {
 					  
 					        actualizarBotones();
 						    presionado = true;
+						    
 
 					}
 				}

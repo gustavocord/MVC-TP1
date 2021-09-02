@@ -39,6 +39,7 @@ public class Tablero {
 			}
 		}
 		return win;
+		
 	}
 	
 	
@@ -74,9 +75,15 @@ public class Tablero {
 		if(j<botones.length-1) {
 			cambiarEstado(i,j+1);
 		}
+		sumarPuntaje();
+		System.out.println("cantidad de jugadas:"+ cantidadJugada);
+		 
 	
 	}
-	
+	public void sumarPuntaje() {
+		 cantidadJugada+=1;
+		
+	}
 	
 	
 	
