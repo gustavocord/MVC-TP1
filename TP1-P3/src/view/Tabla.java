@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.text.StyleConstants.ColorConstants;
 
 import controller.Tablero;
@@ -57,6 +58,7 @@ public class Tabla extends JFrame   {
 	 */
 	public Tabla() {
 		super(" juego de luces");
+		
 		this.tablero = new Tablero(4,4);
 		this.botones=new JButton[4][4];
 	
@@ -74,6 +76,13 @@ public class Tabla extends JFrame   {
 		
 		frame.setBounds(100, 100, 450, 350);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("JUEGO DE LUCES"); //para que aparezca el nombre del juego en pantalla
+		
+		try {   //cambio de estilo, en las ventanas
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+			((Throwable) e).printStackTrace();
+		}
 		
 		// recorre los botones y los dibuja
 		for(int i = 0; i < tablero.getBotones().length ; i++) {
