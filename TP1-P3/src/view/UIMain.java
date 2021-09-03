@@ -51,7 +51,7 @@ public class UIMain {
 		
 		
 		layeredPane = new JLayeredPane();
-		layeredPane.setBounds(0, 0, 521, 325);
+		layeredPane.setBounds(125, 50, 521, 325);
 		frame.getContentPane().add(layeredPane);
 		
 		
