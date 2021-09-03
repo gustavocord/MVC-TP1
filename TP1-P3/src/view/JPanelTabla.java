@@ -112,17 +112,8 @@ public class JPanelTabla extends JPanel {
 	
 	
 	public void hayGanador() {
-		boolean todosVerdes = true;
 		
-		for(int i = 0; i < botones.length ; i++) {
-			for(int j = 0; j < botones[i].length; j++) {
-		
-				todosVerdes = todosVerdes && tablero.getBotones()[i][j].getEstado();
-		
-			}
-		}
-		
-		if(todosVerdes) {
+		if(tablero.gano()) {
 			UIMain.cambiarAPanelResultado();
 		}
 		
