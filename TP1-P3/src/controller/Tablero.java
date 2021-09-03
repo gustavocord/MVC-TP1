@@ -5,7 +5,7 @@ import java.util.Random;
 public class Tablero {
 	
 	private Boton[][] botones;
-	private int  cantidadJugada = 0; 
+
 	
 	// genera los botones con booleanos aleatorios
 	public Tablero(int filas, int columnas) {
@@ -75,15 +75,12 @@ public class Tablero {
 		if(j<botones.length-1) {
 			cambiarEstado(i,j+1);
 		}
-		sumarPuntaje();
-		System.out.println("cantidad de jugadas:"+ cantidadJugada);
+		//sumarPuntaje();
+	
 		 
 	
 	}
-	public void sumarPuntaje() {
-		 cantidadJugada+=1;
-		
-	}
+
 	
 	
 	
