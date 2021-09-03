@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -20,12 +21,15 @@ public class JPanelTabla extends JPanel {
 
 	private Tablero tablero;
 	private JButton[][] botones; //va a estar ubicado igual que el que viene en la logica
+	private JLabel movimientos;
 
 	public JPanelTabla() {
 		this.setBounds(0, 0, 521, 325);
 		
 		this.tablero = new Tablero(4,4);
 		this.botones=new JButton[4][4];
+		this.movimientos=new JLabel("Movimientos");
+		
 		
 		this.setBackground(Color.white);
 
@@ -66,7 +70,6 @@ public class JPanelTabla extends JPanel {
 	private class ButtonPress implements ActionListener {	
 		public void actionPerformed(ActionEvent e) {
 			boolean presionado = false;
-
 			for (int i = 0; i < botones.length; i++) {
 				for (int j = 0; j < botones[i].length; j++) {
 					if (((JButton) e.getSource()).equals(botones[i][j])) {
@@ -74,6 +77,8 @@ public class JPanelTabla extends JPanel {
 						hayGanador(); //Se detecta si existe ganador posible
 						actualizarBotones();
 						presionado = true;
+						
+						
 
 					}
 				}
