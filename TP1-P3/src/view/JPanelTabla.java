@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -29,6 +28,7 @@ public class JPanelTabla extends JPanel {
 		this.botones=new JButton[4][4];
 		
 		this.setBackground(Color.white);
+
 		this.setLayout(new GridLayout(4, 4, 8, 8));
 
 
@@ -65,16 +65,12 @@ public class JPanelTabla extends JPanel {
 
 	private class ButtonPress implements ActionListener {	
 		public void actionPerformed(ActionEvent e) {
-			//if(event.getSource()==botn) {
-			//System.out.println("se presiono");
 			boolean presionado = false;
 
 			for (int i = 0; i < botones.length; i++) {
 				for (int j = 0; j < botones[i].length; j++) {
 					if (((JButton) e.getSource()).equals(botones[i][j])) {
 						tablero.cambiarEstadoVecinos(i, j);
-						System.out.println("i : "+ i+" j: "+j);
-
 						hayGanador(); //Se detecta si existe ganador posible
 						actualizarBotones();
 						presionado = true;
@@ -122,8 +118,6 @@ public class JPanelTabla extends JPanel {
 	
 }
 
-/*
- * realizar funcionalidad de botones con matriz
-*/
+
 
 
