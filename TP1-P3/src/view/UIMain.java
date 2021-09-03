@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -35,6 +37,8 @@ public class UIMain {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 537, 364);
+		frame.setMinimumSize(new Dimension(800, 600));
+		frame.setLocationRelativeTo(null) ;
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("Juego de Luces");
