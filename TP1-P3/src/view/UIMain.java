@@ -37,6 +37,7 @@ public class UIMain {
 		frame.setBounds(100, 100, 537, 364);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setTitle("Juego de Luces");
 		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -61,4 +62,13 @@ public class UIMain {
 		
 		
 	}
+	
+	
+	protected static void cambiarAPanelResultado(){
+		
+			tabla.setVisible(false);
+			resultado.setVisible(true);
+		
+	}
+	
 }

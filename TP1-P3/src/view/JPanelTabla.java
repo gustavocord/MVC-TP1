@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -74,15 +75,22 @@ public class JPanelTabla extends JPanel {
 						tablero.cambiarEstadoVecinos(i, j);
 						System.out.println("i : "+ i+" j: "+j);
 
+						hayGanador(); //Se detecta si existe ganador posible
 						actualizarBotones();
 						presionado = true;
 
 					}
 				}
 			}
+			
 		}
+
 	}
 
+
+	
+	
+	
 	//actualizar botones
 	public void actualizarBotones() {
 		for(int i = 0; i < botones.length ; i++) {
@@ -100,6 +108,27 @@ public class JPanelTabla extends JPanel {
 			}
 		}
 	}
+	
+	
+	
+	public void hayGanador() {
+		boolean todosVerdes = true;
+		
+		for(int i = 0; i < botones.length ; i++) {
+			for(int j = 0; j < botones[i].length; j++) {
+		
+				todosVerdes = todosVerdes && tablero.getBotones()[i][j].getEstado();
+		
+			}
+		}
+		
+		if(todosVerdes) {
+			UIMain.cambiarAPanelResultado();
+		}
+		
+	}
+	
+	
 }
 
 /*
