@@ -12,8 +12,8 @@ public class JPanelResultado extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	private JLabel lblGanador;
-	private String resultado = "Ganaste Felicidades";
+	private JLabel lblJugador;
+	//private String resultado = "Ganaste Felicidades";
 	
 	public JPanelResultado() {
 
@@ -26,18 +26,28 @@ public class JPanelResultado extends JPanel {
 		this.setBounds(0, 0, 521, 325);
 		setLayout(null);
 		
-		lblGanador = new JLabel();
-		lblGanador.setText(resultado);
-		lblGanador.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGanador.setFont(new Font("Tahoma", Font.PLAIN, 21));
-		lblGanador.setBounds(152, 38, 234, 49);
-		add(lblGanador);
-		
-		
+		lblJugador = new JLabel();
+		lblJugador.setHorizontalAlignment(SwingConstants.CENTER);
+		lblJugador.setFont(new Font("Tahoma", Font.PLAIN, 21));
+		lblJugador.setBounds(152, 38, 234, 49);
+		add(lblJugador);
 		
 		
 		
 	
 	
 	}
+	
+	
+	public void setResultado(boolean resultado) {
+		if (resultado) {
+			this.lblJugador.setText("Felicidades ganaste");
+		}
+		else {
+			this.lblJugador.setText("Perdedor");
+
+		}
+	}
+	
+	
 }
