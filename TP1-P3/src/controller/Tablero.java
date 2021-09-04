@@ -6,12 +6,12 @@ public class Tablero {
 	
 	private Boton[][] botones;
 	private static int  movimientos=0;
+	private static int puntaje = 200;
 
 	
 	// genera los botones con booleanos aleatorios
 	public Tablero(int filas, int columnas) {
 		this.botones = new Boton[filas][columnas];
-		this.movimientos=0;
 		for (int i = 0; i < botones.length; i++) {
 			for (int j = 0; j < botones[i].length; j++) {
 				Random random = new Random();
@@ -76,14 +76,33 @@ public class Tablero {
 			cambiarEstado(i,j+1);
 		}
 		//sumarPuntaje(); 
+		System.out.println(movimientos);
 	
 	}
 	
-
+	
+	
+	
+	public static  void sumarMovimiento() {
+		movimientos++;
+	}
 	
 	public static  int getMovimiento() {
 		return movimientos;
 	}
+	
+	
+	public static void actualizarPuntaje() {
+		
+		puntaje = puntaje-10;
+	}
+	
+	
+	public static  int getPuntaje() {
+		return puntaje;
+	}
+	
+	
 	
 	
 
