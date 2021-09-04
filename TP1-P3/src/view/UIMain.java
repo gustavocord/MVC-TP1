@@ -5,15 +5,21 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import controller.Tablero;
+
 
 public class UIMain {
 	private JFrame frame;
 	private static JLayeredPane layeredPane;
 	private static JPanelTabla tabla;
 	private static JPanelResultado resultado;
+	private static JLabel movimientos;
+
+	
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -42,14 +48,20 @@ public class UIMain {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("Juego de Luces");
+		this.movimientos=new JLabel();
+		movimientos.setBounds(150, 230, 537, 364);
+		frame.add(movimientos);
+		movimientos.setText("Movimientos : "+ Tablero.getMovimiento());
+		movimientos.repaint();
+		
+
 		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		layeredPane = new JLayeredPane();
 		layeredPane.setBounds(125, 50, 521, 325);
 		frame.getContentPane().add(layeredPane);
@@ -74,5 +86,11 @@ public class UIMain {
 			resultado.setVisible(true);
 		
 	}
+	
+	protected static void actualizarMain(){
+		
+		
+	
+}
 	
 }
