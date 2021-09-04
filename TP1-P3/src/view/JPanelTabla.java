@@ -75,7 +75,8 @@ public class JPanelTabla extends JPanel {
 						tablero.cambiarEstadoVecinos(i, j);
 						hayGanador(); //Se detecta si existe ganador posible
 						actualizarBotones();
-				
+						tablero.actualizarPuntaje();
+						UIMain.actualizarMain();
 
 						
 						
@@ -115,8 +116,14 @@ public class JPanelTabla extends JPanel {
 	public void hayGanador() {
 		
 		if(tablero.gano()) {
-			UIMain.cambiarAPanelResultado();
+			UIMain.cambiarAPanelResultado(true);
 		}
+		
+		if(tablero.getMovimiento()>=20) {
+			UIMain.cambiarAPanelResultado(false);
+		}
+		
+		
 		
 	}
 	
