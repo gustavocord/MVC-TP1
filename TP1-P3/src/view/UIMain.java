@@ -18,6 +18,7 @@ public class UIMain {
 	private static JPanelTabla tabla;
 	private static JPanelResultado resultado;
 	private static JLabel movimientos;
+	private static JLabel puntaje;
 
 	
 	
@@ -52,7 +53,12 @@ public class UIMain {
 		movimientos.setBounds(150, 230, 537, 364);
 		frame.add(movimientos);
 		movimientos.setText("Movimientos : "+ Tablero.getMovimiento());
-		movimientos.repaint();
+		
+		this.puntaje=new JLabel();
+		puntaje.setBounds(250, 230, 537, 364);
+		frame.add(puntaje);
+		puntaje.setText("Puntaje : "+ Tablero.getPuntaje());
+	
 		
 
 		
@@ -80,17 +86,21 @@ public class UIMain {
 	}
 	
 	
-	protected static void cambiarAPanelResultado(){
+	protected static void cambiarAPanelResultado(boolean result){
 		
 			tabla.setVisible(false);
+			resultado.setResultado(result);
 			resultado.setVisible(true);
+			movimientos.setVisible(false);
+			
 		
 	}
 	
 	protected static void actualizarMain(){
-		
-		
-	
+		movimientos.setText("Movimientos : "+ Tablero.getMovimiento());
+		puntaje.setText("Puntaje : "+ Tablero.getPuntaje());
+
+
 }
 	
 }
