@@ -13,9 +13,10 @@ public class JPanelResultado extends JPanel {
 	 * Create the panel.
 	 */
 	private JLabel lblJugador;
-	//private String resultado = "Ganaste Felicidades";
 	
-	public JPanelResultado() {
+
+	
+	public JPanelResultado () {
 
 		try {   //cambio de estilo, en las ventanas
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -23,28 +24,24 @@ public class JPanelResultado extends JPanel {
 			((Throwable) e).printStackTrace();
 		}
 		
-		this.setBounds(0, 0, 521, 325);
-		setLayout(null);
 		
+		this.setBounds(0, 0, 521, 325);		
 		lblJugador = new JLabel();
 		lblJugador.setHorizontalAlignment(SwingConstants.CENTER);
 		lblJugador.setFont(new Font("Tahoma", Font.PLAIN, 21));
 		lblJugador.setBounds(152, 38, 234, 49);
 		add(lblJugador);
 		
-		
-		
-	
 	
 	}
 	
-	
+	// le falta "estilo" , no pude ponerle un fondo
 	public void setResultado(boolean resultado) {
 		if (resultado) {
 			this.lblJugador.setText("Felicidades ganaste");
 		}
 		else {
-			this.lblJugador.setText("Perdedor");
+			this.lblJugador.setText("upps se le terminaron los movimientos");
 
 		}
 	}

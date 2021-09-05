@@ -1,8 +1,8 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,7 +19,7 @@ public class UIMain {
 	private static JPanelResultado resultado;
 	private static JLabel movimientos;
 	private static JLabel puntaje;
-
+	private Fondo fondo;
 	
 	
 	public static void main(String[] args) {
@@ -43,23 +43,30 @@ public class UIMain {
 	
 	private void initialize() {
 		frame = new JFrame();
+		this.fondo= new Fondo("/imagenes/fondo.jpg");
+		frame.setContentPane(fondo);
+		
 		frame.setBounds(100, 100, 537, 364);
 		frame.setMinimumSize(new Dimension(800, 600));
 		frame.setLocationRelativeTo(null) ;
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setTitle("Juego de Luces");
+		frame.setTitle("Ligth out");
+
+		
+		
 		this.movimientos=new JLabel();
 		movimientos.setBounds(150, 230, 537, 364);
 		frame.add(movimientos);
 		movimientos.setText("Movimientos : "+ Tablero.getMovimiento());
+		movimientos.setFont( new Font("Serif", Font.BOLD, 20));
 		
 		this.puntaje=new JLabel();
-		puntaje.setBounds(250, 230, 537, 364);
+		puntaje.setBounds(350, 230, 537, 364);
 		frame.add(puntaje);
 		puntaje.setText("Puntaje : "+ Tablero.getPuntaje());
+		puntaje.setFont( new Font("Serif", Font.BOLD, 20));
 	
-		
 
 		
 		try {

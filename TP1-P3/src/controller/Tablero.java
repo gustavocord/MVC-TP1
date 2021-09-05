@@ -20,6 +20,8 @@ public class Tablero {
 			}
 		}
 	}
+	
+	
 
 	public Boton[][] getBotones() {
 		return botones;
@@ -103,9 +105,6 @@ public class Tablero {
 	}
 	
 	
-	
-	
-
 	
 	
 	
