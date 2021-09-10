@@ -25,14 +25,16 @@ public class JPanelTabla extends JPanel {
 	public JPanelTabla() {
 		this.setBounds(0, 0, 521, 325);
 		
-		this.tablero = new Tablero(4,4);
+		this.tablero = new Tablero(4,4)
+				;
 		this.botones=new JButton[4][4];
-	
 		
 		this.setBackground(Color.white);
 
 		this.setLayout(new GridLayout(4, 4, 8, 8));
 
+		
+		
 
 		try {   //cambio de estilo, en las ventanas
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -66,20 +68,20 @@ public class JPanelTabla extends JPanel {
 	}
 
 
+	
+	//  la clase ButtonPress implementa ActionListener
+	
 	private class ButtonPress implements ActionListener {	
-		public void actionPerformed(ActionEvent e) {
-			
+		
+		// recorre y  verifica si se presiono un boton
+		public void actionPerformed(ActionEvent e) {	
 			for (int i = 0; i < botones.length; i++) {
 				for (int j = 0; j < botones[i].length; j++) {
 					if (((JButton) e.getSource()).equals(botones[i][j])) {
-						tablero.cambiarEstadoVecinos(i, j);
-						hayGanador(); //Se detecta si existe ganador posible
+						tablero.cambiarEstados(i, j);
+						hayGanador();
 						actualizarBotones();
-						tablero.actualizarPuntaje();
 						UIMain.actualizarMain();
-
-						
-						
 
 					}
 				}
@@ -113,6 +115,7 @@ public class JPanelTabla extends JPanel {
 	
 	
 	
+	
 	public void hayGanador() {
 		
 		if(tablero.gano()) {
@@ -122,7 +125,6 @@ public class JPanelTabla extends JPanel {
 		if(tablero.getMovimiento()>=20) {
 			UIMain.cambiarAPanelResultado(false);
 		}
-		
 		
 		
 	}
