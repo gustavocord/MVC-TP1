@@ -21,21 +21,20 @@ public class Tablero {
 		}
 	}
 	
-	
 
 	public Boton[][] getBotones() {
 		return botones;
 	}
 
+	
 	public void setTablero(Boton[][] tablero) {
 		this.botones = tablero;
 	}
 	
-	// si estan todos en true gano
+	
 	public boolean gano() {
 		
 		boolean win = true;
-		
 		for (int i= 0 ; i<this.botones.length; i++) {
 			for (int j = 0; j < botones[i].length; j++) {
 				win = this.botones[i][j].getEstado() && win;
@@ -47,7 +46,7 @@ public class Tablero {
 	
 	
 	// cambiamos el estado del boton
-	public void cambiarEstado(int i , int j) {
+	public void cambiarEstadoBoton(int i , int j) {
 
 		if (botones[i][j].getEstado()) {
 			botones[i][j].setEstado(false);
@@ -61,34 +60,40 @@ public class Tablero {
 
 // cambia el estado de los vecinos dependiendo la ubicacion del boton apretado	No funciona bien
 	public void cambiarEstadoVecinos(int i, int j) {
-		this.movimientos= movimientos+1;
-		cambiarEstado(i,j);
+		
 		if(i>0) {
-			cambiarEstado(i-1,j);
+			cambiarEstadoBoton(i-1,j);
 		}
 		if(i<botones.length-1) {
-			cambiarEstado(i+1,j);
+			cambiarEstadoBoton(i+1,j);
 		
 		}
 		
 		if(j>0) {
-			cambiarEstado(i,j-1);
+			cambiarEstadoBoton(i,j-1);
 		}
 		if(j<botones.length-1) {
-			cambiarEstado(i,j+1);
+			cambiarEstadoBoton(i,j+1);
 		}
-		//sumarPuntaje(); 
-		System.out.println(movimientos);
-	
 	}
 	
 	
 	
-	
-	public static  void sumarMovimiento() {
+	public  void actualizarMovimiento() {
 		movimientos++;
 	}
 	
+	
+	public void cambiarEstados(int i, int j) {
+		cambiarEstadoVecinos(i,j);
+		cambiarEstadoBoton(i,j);
+		actualizarMovimiento();
+		actualizarPuntaje();
+		
+	}
+	
+	
+
 	public static  int getMovimiento() {
 		return movimientos;
 	}
