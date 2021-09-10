@@ -1,6 +1,7 @@
 package view;
 
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -13,6 +14,10 @@ public class JPanelResultado extends JPanel {
 	 * Create the panel.
 	 */
 	private JLabel lblJugador;
+	private JLabel img = new JLabel(" ");
+	private ImageIcon imagenPerdio =new ImageIcon(getClass().getResource("/imagenes/perdio.jpg"));
+	private ImageIcon imagenGano =new ImageIcon(getClass().getResource("/imagenes/gano.jpg"));
+
 	
 
 	
@@ -24,27 +29,37 @@ public class JPanelResultado extends JPanel {
 			((Throwable) e).printStackTrace();
 		}
 		
+		this.setBounds(0, 0, 521, 325);
 		
-		this.setBounds(0, 0, 521, 325);		
+		// Seteamos el tamaño de la imagen , la ubicacion y lo hacemos visible
+		img.setSize(135,135);
+		img.setLocation(550,20);
+		img.setVisible(true);
+		
+		
 		lblJugador = new JLabel();
 		lblJugador.setHorizontalAlignment(SwingConstants.CENTER);
 		lblJugador.setFont(new Font("Tahoma", Font.PLAIN, 21));
 		lblJugador.setBounds(152, 38, 234, 49);
 		add(lblJugador);
+		add(img);
 		
 	
 	}
 	
-	// le falta "estilo" , no pude ponerle un fondo
-	public void setResultado(boolean resultado) {
+	
+	public void mostrarResultado(boolean resultado) {
 		if (resultado) {
+			img.setIcon(imagenGano);
 			this.lblJugador.setText("Felicidades ganaste");
+			
 		}
 		else {
+			img.setIcon(imagenPerdio);
+		
 			this.lblJugador.setText("upps se le terminaron los movimientos");
-
+			
 		}
 	}
-	
-	
-}
+
+	}
