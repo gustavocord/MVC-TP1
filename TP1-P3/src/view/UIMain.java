@@ -62,7 +62,7 @@ public class UIMain {
 		movimientos.setFont( new Font("Serif", Font.BOLD, 20));
 		
 		this.puntaje=new JLabel();
-		puntaje.setBounds(350, 230, 537, 364);
+		puntaje.setBounds(346, 230, 537, 364);
 		frame.add(puntaje);
 		puntaje.setText("Puntaje : "+ Tablero.getPuntaje());
 		puntaje.setFont( new Font("Serif", Font.BOLD, 20));
@@ -96,8 +96,8 @@ public class UIMain {
 	protected static void cambiarAPanelResultado(boolean result){
 		
 			tabla.setVisible(false);
-			resultado.setResultado(result);
 			resultado.setVisible(true);
+			resultado.mostrarResultado(result);
 			movimientos.setVisible(false);
 			
 		
